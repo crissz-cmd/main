@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Sederhana</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="pretitle">Halo, saya</p>
+      <h1>Cristian Nathanael S</h1>
+      <p class="hero__subtitle">Saya membuat desain web sederhana, pengalaman pengguna yang bersih, dan solusi kreatif dengan HTML, CSS, dan JavaScript, dan C++.</p>
+      <div class="hero__buttons">
+        <a href="#about" class="button button--primary">Tentang Saya</a>
+        <a href="#projects" class="button button--secondary">Proyek</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section section--soft">
+      <div class="container">
+        <div class="section__header">
+          <span>Profil</span>
+          <h2>Tentang Saya</h2>
+        </div>
+        <div class="card soft-card">
+          <p>Saya adalah seorang pelajar SMA di Kota Bandung. Saat di sekolah saya menyukai pelajaran matematika dan pernah mengikuti olimpiade matematika internasional yang diadakan oleh IKMC. Selain itu saya tertarik dengan dunia programmer, seperti bagaimana website itu dibuat dan bagaimana cara game itu bekerja. Dari hal tersebut saya menncari tahu dengan cara mulai mempelajari dunia coding secara otodidak.</p>
+          <ul class="info-list">
+            <li><strong>Keahlian:</strong> HTML, CSS, JavaScript, C++</li>
+            <li><strong>Tujuan:</strong> Saya memiliki tujuan untuk melanjutkan studi di luar negeri terutama di bidang informatika.</li>
+            <li><strong>Dream Campus:</strong> Stanford University (Plis terima gueee) </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section__header">
+          <span>Proyek</span>
+          <h2>Beberapa Karya</h2>
+        </div>
+        <div class="grid">
+          <article class="project-card">
+            <h3>Calculator</h3>
+            <p>Sebuah kalkulator sederhana yang dibuat untuk projek mandiri.</p>
+          </article>
+          <article class="project-card">
+            <h3>Web Portofolio</h3>
+            <p>Portofolio web yang menampilkan karya dan pengalaman saya.</p>
+          </article>
+          <article class="project-card">
+            <h3>Web Sample</h3>
+            <p>Contoh website sederhana yang menunjukkan kemampuan desain dan pengembangan web.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--soft">
+      <div class="container contact-card">
+        <div class="section__header">
+          <span>Kontak</span>
+          <h2>Siap Bekerja Sama?</h2>
+        </div>
+        <form id="contactForm" class="form-card">
+          <label for="name">Nama</label>
+          <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="alamat@email.com" required />
+
+          <label for="message">Pesan</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tuliskan pesan singkat" required></textarea>
+
+          <button type="submit" class="button button--primary">Kirim Pesan</button>
+          <p id="contactFeedback" class="feedback"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Portofolio Sederhana. Dibuat dengan HTML, CSS, dan JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

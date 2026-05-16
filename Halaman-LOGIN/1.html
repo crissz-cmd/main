@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STFU DAWG</title>
+    <!-- Menggunakan Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- CSS STYLING --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #111;
+            overflow: hidden;
+        }
+
+        /* Animasi Latar Belakang */
+        .background-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            filter: blur(50px);
+            border-radius: 50%;
+            animation: float 10s infinite alternate;
+        }
+
+        .shape:nth-child(1) {
+            top: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgb(68, 101, 235);
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(2) {
+            bottom: -10%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: #1bbce1;
+            animation-delay: -7s;
+        }
+
+        .shape:nth-child(3) {
+            top: 40%;
+            left: 40%;
+            width: 300px;
+            height: 300px;
+            background: #f6698f;
+            animation-duration: 4s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(50px, 50px) rotate(20deg); }
+        }
+
+        /* Kartu Login Glassmorphism */
+        .login-card {
+            position: relative;
+            z-index: 10;
+            width: 400px;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .login-card h2 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Input Fields */
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+            transition: 0.3s ease all;
+        }
+
+        /* Animasi Label saat input fokus atau ada isi */
+        .input-group input:focus ~ label,
+        .input-group input:valid ~ label {
+            top: -20px;
+            font-size: 12px;
+            color: #00d2ff;
+        }
+
+        .input-group input:focus {
+            border-bottom: 2px solid #00d2ff;
+        }
+
+        /* Ikon Toggle Password */
+        .toggle-password {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .toggle-password:hover {
+            color: #fff;
+        }
+
+        /* Tombol Login */
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #ff2a95, #00d2ff);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Link Lupa Password / Daftar */
+        .links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: #fff;
+        }
+
+        /* Pesan Error/Sukses */
+        .message {
+            margin-top: 15px;
+            font-size: 14px;
+            min-height: 20px;
+            color: #fff;
+        }
+        
+        .error { color: #ff4d4d; }
+        .success { color: #00ff88; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Latar Belakang Animasi -->
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Kartu Login -->
+    <div class="login-card">
+        <h2>Selamat Datang</h2>
+        <form id="loginForm">
+            <!-- Input Username -->
+            <div class="input-group">
+                <input type="text" id="username" required autocomplete="off">
+                <label>Username</label>
+            </div>
+
+            <!-- Input Password -->
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label>Password</label>
+                <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+            </div>
+
+            <button type="submit" id="loginBtn">LOGIN</button>
+
+            <div class="links">
+                <a href="#">Lupa Password?</a>
+                <a href="#">Daftar Akun</a>
+            </div>
+            
+            <div class="message" id="messageBox"></div>
+        </form>
+    </div>
+
+    <script>
+        /* --- JAVASCRIPT LOGIC --- */
+        
+        // 1. Toggle Show/Hide Password
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function () {
+            // Ubah tipe input dari password ke text atau sebaliknya
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            // Ubah ikon mata (slash atau biasa)
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // 2. Simulasi Proses Login
+        const loginForm = document.getElementById('loginForm');
+        const loginBtn = document.getElementById('loginBtn');
+        const messageBox = document.getElementById('messageBox');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah reload halaman
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Reset pesan
+            messageBox.textContent = '';
+            messageBox.className = 'message';
+
+            // Efek Loading pada tombol
+            const originalBtnText = loginBtn.innerText;
+            loginBtn.innerText = 'Memproses...';
+            loginBtn.style.opacity = '0.7';
+            loginBtn.disabled = true;
+
+            // Simulasi delay server (2 detik)
+            setTimeout(() => {
+                // Validasi Sederhana (Hanya contoh)
+                if(username === "admin" && password === "1234") {
+                    messageBox.textContent = "Login Berhasil! Mengalihkan...";
+                    messageBox.classList.add('success');
+                    
+                    // Di sini Anda bisa redirect: window.location.href = 'dashboard.html';
+                } else {
+                    messageBox.textContent = "Username atau Password salah!";
+                    messageBox.classList.add('error');
+                    
+                    // Efek getar jika salah
+                    const card = document.querySelector('.login-card');
+                    card.style.transform = 'translateX(10px)';
+                    setTimeout(() => card.style.transform = 'translateX(-10px)', 100);
+                    setTimeout(() => card.style.transform = 'translateX(10px)', 200);
+                    setTimeout(() => card.style.transform = 'translateX(0)', 300);
+                }
+
+                // Kembalikan tombol ke semula
+                loginBtn.innerText = originalBtnText;
+                loginBtn.style.opacity = '1';
+                loginBtn.disabled = false;
+
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
